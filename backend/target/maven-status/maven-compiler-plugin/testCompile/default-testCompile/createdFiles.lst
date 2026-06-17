@@ -1,0 +1,5 @@
+com/holink/validation/UrlValidationUtilTest.class
+com/holink/service/ProfileServiceTest.class
+com/holink/validation/UsernameUtilTest.class
+com/holink/service/LinkServiceTest.class
+com/holink/controller/ApiIntegrationTest.class

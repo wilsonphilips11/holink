@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: holink-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/holink}
+    username: ${SPRING_DATASOURCE_USERNAME:holink}
+    password: ${SPRING_DATASOURCE_PASSWORD:holink}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+
+holink:
+  jwt:
+    secret: ${JWT_SECRET:holink-dev-secret-change-in-production-min-256-bits-long-key!!}
+    access-token-expiration-ms: ${JWT_ACCESS_EXPIRATION_MS:900000}
+    refresh-token-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}
+  click-rate-limit:
+    requests-per-minute: ${CLICK_RATE_LIMIT:100}
+  ip-hash-salt: ${IP_HASH_SALT:holink-ip-salt-change-in-production}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    com.holink: INFO

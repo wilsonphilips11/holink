@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:holink;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: false
+
+holink:
+  jwt:
+    secret: test-secret-key-for-jwt-signing-minimum-256-bits!!
+    access-token-expiration-ms: 900000
+    refresh-token-expiration-ms: 604800000
+  click-rate-limit:
+    requests-per-minute: 100
+  ip-hash-salt: test-ip-salt
